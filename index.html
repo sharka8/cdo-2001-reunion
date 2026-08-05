@@ -1,17 +1,203 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CDO Class of 2001 — 25-Year Reunion</title><meta name="description" content="Register for the Canyon del Oro High School Class of 2001 25-Year Reunion."><link rel="stylesheet" href="styles.css"></head><body>
-<header class="hero"><div class="hero__overlay"><p class="eyebrow">Canyon del Oro High School</p><h1>Class of 2001<br><span>25-Year Reunion</span></h1><p class="hero__date">October 23–24, 2026 · Tucson, Arizona</p><a class="button button--gold" href="#register">Register — $67 per person</a></div></header>
-<main>
-<section class="section intro"><p class="eyebrow">Más Allá</p><h2>Come reconnect with the Class of 2001</h2><p>Join us for a casual Friday gathering and concert, followed by our main reunion celebration Saturday evening at Culinary Dropout.</p></section>
-<section class="section schedule">
-<article class="card"><div class="date-badge"><strong>FRI</strong><span>OCT 23</span></div><div><h3>Friday Activities</h3><p><strong>12:00–2:00 PM</strong><br>CDO campus visit and family picnic at James D. Kriegh Park <span class="muted">(formerly Dennis Weaver Park)</span></p><p><strong>9:00–10:00 PM</strong><br>Concert by Jade’s band at The Plaza at Hotel Congress</p><p class="muted">Friday activities are separate from the paid Saturday reunion ticket.</p></div></article>
-<article class="card card--featured"><div class="date-badge"><strong>SAT</strong><span>OCT 24</span></div><div><h3>Main Reunion Event</h3><p><strong>6:00–9:00 PM</strong><br>Culinary Dropout · Tucson</p><p>Food, music, games and plenty of time to reconnect.</p><p class="price">$67 per person</p></div></article>
-</section>
-<section class="section details"><div><h2>Registration details</h2><ul><li>Attendance is limited to 200 paid tickets.</li><li>Each guest needs to be listed by name.</li><li>Full refunds are available when requested before October 24, 2026.</li><li>Questions: <a href="mailto:sharlaruiz@gmail.com">sharlaruiz@gmail.com</a></li></ul></div></section>
-<section class="section register" id="register"><div class="form-heading"><p class="eyebrow">Reserve your spot</p><h2>Reunion registration</h2><p>Complete the form below. You’ll continue to Stripe’s secure checkout to pay.</p></div>
-<form id="registration-form"><div class="grid">
-<label>First name<input name="firstName" required autocomplete="given-name"></label><label>Last name<input name="lastName" required autocomplete="family-name"></label><label>Maiden/former name<input name="formerName" autocomplete="additional-name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label><label>Number of tickets<select name="quantity" id="quantity" required><option value="1">1 ticket — $67</option><option value="2">2 tickets — $134</option><option value="3">3 tickets — $201</option><option value="4">4 tickets — $268</option><option value="5">5 tickets — $335</option><option value="6">6 tickets — $402</option></select></label></div>
-<label id="guest-names-wrap" class="full hidden">Guest name(s)<textarea name="guestNames" id="guestNames" rows="3" placeholder="Enter the full name of each guest, separated by commas."></textarea></label>
-<fieldset><legend>Friday plans</legend><label class="check"><input type="checkbox" name="picnic" value="Yes"> CDO visit and family picnic, 12–2 PM</label><label class="check"><input type="checkbox" name="concert" value="Yes"> Jade’s band at Hotel Congress, 9–10 PM</label></fieldset>
-<label class="full">Dietary, accessibility or other notes<textarea name="notes" rows="3"></textarea></label><label class="check policy"><input type="checkbox" required> I understand that full refunds must be requested before October 24, 2026.</label>
-<div class="checkout-row"><div><span>Total</span><strong id="total">$67</strong></div><button class="button button--green" type="submit" id="submit-button">Continue to secure payment</button></div><p class="form-message" id="form-message" role="status"></p></form></section>
-</main><footer><p>CDO Class of 2001 · 25-Year Reunion</p><p><a href="mailto:sharlaruiz@gmail.com">sharlaruiz@gmail.com</a></p></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CDO Class of 2001 — 25-Year Reunion</title>
+  <meta name="description" content="Register for the Canyon del Oro High School Class of 2001 25-Year Reunion in Tucson, Arizona.">
+  <meta property="og:title" content="CDO Class of 2001 — 25-Year Reunion">
+  <meta property="og:description" content="October 23–24, 2026 in Tucson. Saturday reunion tickets are $67 per person.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">CDO 2001</a>
+      <div class="nav__links">
+        <a href="#weekend">Weekend</a>
+        <a href="#details">Details</a>
+        <a class="nav__button" href="#register">Register</a>
+      </div>
+    </nav>
+
+    <div class="hero__content" id="top">
+      <p class="eyebrow">Canyon del Oro High School</p>
+      <h1>Class of 2001<br><span>25-Year Reunion</span></h1>
+      <p class="hero__date">October 23–24, 2026 · Tucson, Arizona</p>
+      <div class="hero__actions">
+        <a class="button button--gold" href="#register">Register — $67 per person</a>
+        <a class="button button--outline" href="#weekend">View the weekend</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="countdown" aria-labelledby="countdown-heading">
+      <div class="countdown__inner">
+        <div>
+          <p class="eyebrow">The countdown is on</p>
+          <h2 id="countdown-heading">Until the main reunion</h2>
+        </div>
+        <div class="countdown__grid" aria-live="polite">
+          <div><strong id="count-days">--</strong><span>Days</span></div>
+          <div><strong id="count-hours">--</strong><span>Hours</span></div>
+          <div><strong id="count-minutes">--</strong><span>Minutes</span></div>
+          <div><strong id="count-seconds">--</strong><span>Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <p class="eyebrow">Más Allá</p>
+      <h2>Come reconnect with the Class of 2001</h2>
+      <p>We have planned a relaxed reunion weekend with time for classmates, friends and families to reconnect—followed by our main celebration Saturday evening at Culinary Dropout.</p>
+    </section>
+
+    <section class="section" id="weekend">
+      <div class="section-heading">
+        <p class="eyebrow">Reunion weekend</p>
+        <h2>Two days, one milestone</h2>
+      </div>
+
+      <div class="schedule">
+        <article class="card">
+          <div class="date-badge"><strong>FRI</strong><span>OCT 23</span></div>
+          <div>
+            <h3>Friday Activities</h3>
+            <div class="event-item">
+              <p class="event-time">12:00–2:00 PM</p>
+              <h4>CDO Visit & Family Picnic</h4>
+              <p>Visit CDO and gather for a casual bring-your-own picnic at James D. Kriegh Park <span class="muted">(formerly Dennis Weaver Park)</span>.</p>
+            </div>
+            <div class="event-item">
+              <p class="event-time">9:00–10:00 PM</p>
+              <h4>Jade’s Band at Hotel Congress</h4>
+              <p>Meet downtown at The Plaza at Hotel Congress for a concert featuring our own classmate Jade’s band.</p>
+            </div>
+            <p class="note">Friday activities are separate from the paid Saturday reunion ticket.</p>
+          </div>
+        </article>
+
+        <article class="card card--featured">
+          <div class="date-badge"><strong>SAT</strong><span>OCT 24</span></div>
+          <div>
+            <p class="featured-label">Main Event</p>
+            <h3>25-Year Reunion Celebration</h3>
+            <div class="event-item">
+              <p class="event-time">6:00–9:00 PM</p>
+              <h4>Culinary Dropout · Tucson</h4>
+              <p>Food, music, games and plenty of time to catch up with classmates and guests.</p>
+            </div>
+            <div class="price-block">
+              <strong>$67</strong>
+              <span>per person</span>
+            </div>
+            <a class="button button--green" href="#register">Reserve your spot</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="details" id="details">
+      <div class="details__inner">
+        <div>
+          <p class="eyebrow">Before you register</p>
+          <h2>Simple registration details</h2>
+        </div>
+        <ul class="details__list">
+          <li><strong>200-ticket limit.</strong> Registration is available until we reach capacity.</li>
+          <li><strong>Guest names required.</strong> Please list each person attending with you.</li>
+          <li><strong>Refunds.</strong> Full refunds are available when requested before October 24, 2026.</li>
+          <li><strong>Questions.</strong> Email <a href="mailto:sharlaruiz@gmail.com">sharlaruiz@gmail.com</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section faq" aria-labelledby="faq-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Frequently asked questions</p>
+        <h2 id="faq-heading">Good to know</h2>
+      </div>
+      <div class="faq__grid">
+        <article><h3>Is Friday included in the ticket?</h3><p>No. Friday’s picnic and concert are separate activities. The $67 ticket is for Saturday’s main reunion event.</p></article>
+        <article><h3>Can I bring a guest?</h3><p>Yes. Purchase one ticket per attendee and enter the full name of every guest during registration.</p></article>
+        <article><h3>Will I receive confirmation?</h3><p>Yes. Stripe will email a payment receipt after checkout is completed.</p></article>
+        <article><h3>What is the refund deadline?</h3><p>Full refunds are available when requested before the event date, October 24, 2026.</p></article>
+      </div>
+    </section>
+
+    <section class="section register" id="register">
+      <div class="form-heading">
+        <p class="eyebrow">Reserve your spot</p>
+        <h2>Reunion registration</h2>
+        <p>Complete the form below, then continue to Stripe’s secure checkout.</p>
+      </div>
+
+      <form id="registration-form">
+        <div class="grid">
+          <label>First name
+            <input name="firstName" required autocomplete="given-name">
+          </label>
+          <label>Last name
+            <input name="lastName" required autocomplete="family-name">
+          </label>
+          <label>Maiden/former name
+            <input name="formerName" autocomplete="additional-name">
+          </label>
+          <label>Email
+            <input name="email" type="email" required autocomplete="email">
+          </label>
+          <label>Phone
+            <input name="phone" type="tel" autocomplete="tel">
+          </label>
+          <label>Number of tickets
+            <select name="quantity" id="quantity" required>
+              <option value="1">1 ticket — $67</option>
+              <option value="2">2 tickets — $134</option>
+              <option value="3">3 tickets — $201</option>
+              <option value="4">4 tickets — $268</option>
+              <option value="5">5 tickets — $335</option>
+              <option value="6">6 tickets — $402</option>
+            </select>
+          </label>
+        </div>
+
+        <label id="guest-names-wrap" class="full hidden">Guest name(s)
+          <textarea name="guestNames" id="guestNames" rows="3" placeholder="Enter the full name of each guest, separated by commas."></textarea>
+        </label>
+
+        <fieldset>
+          <legend>Friday plans</legend>
+          <p class="fieldset-note">These answers help us estimate Friday attendance and do not change your ticket price.</p>
+          <label class="check"><input type="checkbox" name="picnic" value="Yes"> CDO visit and family picnic, 12–2 PM</label>
+          <label class="check"><input type="checkbox" name="concert" value="Yes"> Jade’s band at Hotel Congress, 9–10 PM</label>
+        </fieldset>
+
+        <label class="check policy">
+          <input type="checkbox" required>
+          I understand that full refunds must be requested before October 24, 2026.
+        </label>
+
+        <div class="checkout-row">
+          <div>
+            <span>Total</span>
+            <strong id="total">$67</strong>
+          </div>
+          <button class="button button--green" type="submit" id="submit-button">Continue to secure payment</button>
+        </div>
+
+        <p class="secure-note">Secure payment is processed by Stripe. Card information is never stored on this website.</p>
+        <p class="form-message" id="form-message" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>CDO Class of 2001 · 25-Year Reunion</strong></p>
+    <p>October 23–24, 2026 · Tucson, Arizona</p>
+    <p><a href="mailto:sharlaruiz@gmail.com">sharlaruiz@gmail.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
