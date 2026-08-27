@@ -1,4 +1,6 @@
 const reunionDate = new Date('2026-10-24T18:00:00-07:00');
+const TICKET_PRICE = 45;
+
 const countdownIds = {
   days: document.getElementById('count-days'),
   hours: document.getElementById('count-hours'),
@@ -15,6 +17,7 @@ function updateCountdown() {
     countdownIds.seconds.textContent = '0';
     return;
   }
+
   const day = 1000 * 60 * 60 * 24;
   const hour = 1000 * 60 * 60;
   const minute = 1000 * 60;
@@ -23,6 +26,7 @@ function updateCountdown() {
   countdownIds.minutes.textContent = String(Math.floor((distance % hour) / minute)).padStart(2, '0');
   countdownIds.seconds.textContent = String(Math.floor((distance % minute) / 1000)).padStart(2, '0');
 }
+
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
@@ -36,12 +40,13 @@ const submitButton = document.getElementById('submit-button');
 
 function updateTotal() {
   const count = Number(quantity.value);
-  total.textContent = `$${count * 67}`;
+  total.textContent = `$${count * TICKET_PRICE}`;
   const hasGuests = count > 1;
   guestWrap.classList.toggle('hidden', !hasGuests);
   guestNames.required = hasGuests;
   if (!hasGuests) guestNames.value = '';
 }
+
 quantity.addEventListener('change', updateTotal);
 updateTotal();
 
@@ -54,8 +59,9 @@ form.addEventListener('submit', async (event) => {
   const formData = new FormData(form);
   const payload = Object.fromEntries(formData.entries());
   payload.quantity = Number(payload.quantity);
-  payload.picnic = formData.get('picnic') === 'Yes';
   payload.concert = formData.get('concert') === 'Yes';
+  payload.picnic = formData.get('picnic') === 'Yes';
+  payload.cdoVisit = formData.get('cdoVisit') === 'Yes';
 
   try {
     const response = await fetch('/api/create-checkout', {

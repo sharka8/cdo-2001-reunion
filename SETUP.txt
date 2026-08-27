@@ -1,0 +1,27 @@
+CDO REUNION CHECKOUT SETUP
+
+1. In GitHub, replace the existing script.js with the included script.js.
+
+2. Create these folders and file in the repository:
+   functions/api/create-checkout.js
+
+3. In Stripe, find the active $45 reunion Price ID. It begins with price_.
+   Use the Price ID—not the Payment Link URL and not the Product ID.
+
+4. In Cloudflare, open the Pages project for the reunion website. Under
+   Settings > Variables and Secrets, add:
+
+   STRIPE_SECRET_KEY = your Stripe secret key (mark as encrypted/secret)
+   STRIPE_PRICE_ID = the $45 reunion Price ID
+
+   Do not place either value in GitHub.
+
+5. Redeploy the Cloudflare Pages project after adding both variables.
+
+6. Test with Stripe test-mode values before accepting live registrations.
+   Confirm that checkout shows $45 per ticket and that the Stripe payment's
+   metadata includes graduate name, former name, guest names, and weekend plans.
+
+The separate Stripe Payment Link is not used by this version. The function
+creates a secure Stripe Checkout Session for the same $45 Stripe Price so that
+the registration information can be attached to the payment.
