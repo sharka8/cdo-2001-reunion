@@ -73,7 +73,7 @@ form.addEventListener('submit', async (event) => {
     if (!response.ok || !data.url) throw new Error(data.error || 'Unable to create checkout.');
     window.location.href = data.url;
   } catch (error) {
-    message.textContent = `${error.message} Please try again or email sharlaruiz@gmail.com.`;
+    message.textContent = `${error.message} Please try again or email cdo2001reunion@gmail.com.`;
     submitButton.disabled = false;
     submitButton.textContent = 'Continue to secure payment';
   }
