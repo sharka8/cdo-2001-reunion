@@ -68,7 +68,7 @@ h1 span { color: var(--gold); }
 .intro__copy p:last-child { margin-bottom: 0; color: var(--muted); font-size: 1.04rem; }
 h2 { font-size: clamp(2.1rem, 4vw, 3.3rem); line-height: 1.06; margin: 0 0 18px; }
 .section-heading { margin-bottom: 22px; }
-.schedule { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); align-items: start; }
+.schedule { display: grid; gap: 20px; grid-template-columns: .82fr 1.18fr; align-items: start; }
 .card { background: white; border-radius: 20px; padding: 25px; box-shadow: var(--shadow); display: flex; gap: 20px; }
 .card--featured { border: 3px solid var(--gold); }
 .date-badge { min-width: 82px; text-align: center; color: var(--green); }
