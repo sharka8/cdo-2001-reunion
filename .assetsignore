@@ -1,0 +1,9 @@
+.git/
+.gitignore
+.assetsignore
+README.md
+SETUP.txt
+create-checkout.js
+functions/
+worker.js
+wrangler.jsonc
