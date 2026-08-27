@@ -6,7 +6,7 @@
   <title>CDO Class of 2001 — 25-Year Reunion</title>
   <meta name="description" content="Register for the Canyon del Oro High School Class of 2001 25-Year Reunion in Tucson, Arizona.">
   <meta property="og:title" content="CDO Class of 2001 — 25-Year Reunion">
-  <meta property="og:description" content="October 23–24, 2026 in Tucson. Saturday reunion tickets are $67 per person.">
+  <meta property="og:description" content="October 23–24, 2026 in Tucson. Saturday reunion tickets are $45 per person.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
       <h1>Class of 2001<br><span>25-Year Reunion</span></h1>
       <p class="hero__date">October 23–24, 2026 · Tucson, Arizona</p>
       <div class="hero__actions">
-        <a class="button button--gold" href="#register">Register — $67 per person</a>
+        <a class="button button--gold" href="#register">Register — $45 per person</a>
         <a class="button button--outline" href="#weekend">View the weekend</a>
       </div>
     </div>
@@ -50,7 +50,7 @@
     <section class="section intro">
       <p class="eyebrow">Más Allá</p>
       <h2>Come reconnect with the Class of 2001</h2>
-      <p>We have planned a relaxed reunion weekend with time for classmates, friends and families to reconnect—followed by our main celebration Saturday evening at Culinary Dropout.</p>
+      <p>We have planned a relaxed reunion weekend with a Friday-night concert, family activities on Saturday afternoon and our main celebration Saturday evening at DiBella’s.</p>
     </section>
 
     <section class="section" id="weekend">
@@ -63,33 +63,38 @@
         <article class="card">
           <div class="date-badge"><strong>FRI</strong><span>OCT 23</span></div>
           <div>
-            <h3>Friday Activities</h3>
-            <div class="event-item">
-              <p class="event-time">12:00–2:00 PM</p>
-              <h4>CDO Visit & Family Picnic</h4>
-              <p>Visit CDO and gather for a casual bring-your-own picnic at James D. Kriegh Park <span class="muted">(formerly Dennis Weaver Park)</span>.</p>
-            </div>
+            <h3>Friday Night Concert</h3>
             <div class="event-item">
               <p class="event-time">9:00–10:00 PM</p>
               <h4>Jade’s Band at Hotel Congress</h4>
               <p>Meet downtown at The Plaza at Hotel Congress for a concert featuring our own classmate Jade’s band.</p>
             </div>
-            <p class="note">Friday activities are separate from the paid Saturday reunion ticket.</p>
+            <p class="note">The Friday concert is separate from the paid Saturday reunion ticket.</p>
           </div>
         </article>
 
         <article class="card card--featured">
           <div class="date-badge"><strong>SAT</strong><span>OCT 24</span></div>
           <div>
-            <p class="featured-label">Main Event</p>
-            <h3>25-Year Reunion Celebration</h3>
+            <p class="featured-label">Saturday Events</p>
+            <h3>Picnic, CDO Visit & Main Reunion</h3>
             <div class="event-item">
-              <p class="event-time">6:00–9:00 PM</p>
-              <h4>Culinary Dropout · Tucson</h4>
-              <p>Food, music, games and plenty of time to catch up with classmates and guests.</p>
+              <p class="event-time">12:00 PM</p>
+              <h4>Family Picnic at James D. Kriegh Park</h4>
+              <p>Bring your own picnic and gather with classmates, friends and families for a relaxed afternoon at the park.</p>
+            </div>
+            <div class="event-item">
+              <p class="event-time">2:00 PM</p>
+              <h4>Possible CDO Tour & Class Photos</h4>
+              <p>We hope to visit CDO for a possible campus tour and class pictures. Details will be confirmed as arrangements are finalized.</p>
+            </div>
+            <div class="event-item">
+              <p class="event-time">6:00 PM</p>
+              <h4>Dinner & Main Event at DiBella’s</h4>
+              <p>Enjoy dinner and plenty of time to reconnect and celebrate with classmates and guests.</p>
             </div>
             <div class="price-block">
-              <strong>$67</strong>
+              <strong>$45</strong>
               <span>per person</span>
             </div>
             <a class="button button--green" href="#register">Reserve your spot</a>
@@ -119,8 +124,8 @@
         <h2 id="faq-heading">Good to know</h2>
       </div>
       <div class="faq__grid">
-        <article><h3>Is Friday included in the ticket?</h3><p>No. Friday’s picnic and concert are separate activities. The $67 ticket is for Saturday’s main reunion event.</p></article>
-        <article><h3>Can I bring a guest?</h3><p>Yes. Purchase one ticket per attendee and enter the full name of every guest during registration.</p></article>
+        <article><h3>What does the ticket include?</h3><p>The $45 ticket is for Saturday evening’s dinner and main reunion event at DiBella’s. The concert, family picnic and possible CDO visit are separate weekend activities.</p></article>
+        <article><h3>Can I bring a guest?</h3><p>Yes. Purchase one ticket per person attending the Saturday evening event and enter the full name of every guest during registration.</p></article>
         <article><h3>Will I receive confirmation?</h3><p>Yes. Stripe will email a payment receipt after checkout is completed.</p></article>
         <article><h3>What is the refund deadline?</h3><p>Full refunds are available when requested before the event date, October 24, 2026.</p></article>
       </div>
@@ -133,7 +138,7 @@
         <p>Complete the form below, then continue to Stripe’s secure checkout.</p>
       </div>
 
-      <form id="registration-form">
+      <form id="registration-form" data-payment-link="https://buy.stripe.com/8x28wQ28G6SL7CS02l6Vq00">
         <div class="grid">
           <label>First name
             <input name="firstName" required autocomplete="given-name">
@@ -152,12 +157,12 @@
           </label>
           <label>Number of tickets
             <select name="quantity" id="quantity" required>
-              <option value="1">1 ticket — $67</option>
-              <option value="2">2 tickets — $134</option>
-              <option value="3">3 tickets — $201</option>
-              <option value="4">4 tickets — $268</option>
-              <option value="5">5 tickets — $335</option>
-              <option value="6">6 tickets — $402</option>
+              <option value="1">1 ticket — $45</option>
+              <option value="2">2 tickets — $90</option>
+              <option value="3">3 tickets — $135</option>
+              <option value="4">4 tickets — $180</option>
+              <option value="5">5 tickets — $225</option>
+              <option value="6">6 tickets — $270</option>
             </select>
           </label>
         </div>
@@ -167,10 +172,11 @@
         </label>
 
         <fieldset>
-          <legend>Friday plans</legend>
-          <p class="fieldset-note">These answers help us estimate Friday attendance and do not change your ticket price.</p>
-          <label class="check"><input type="checkbox" name="picnic" value="Yes"> CDO visit and family picnic, 12–2 PM</label>
-          <label class="check"><input type="checkbox" name="concert" value="Yes"> Jade’s band at Hotel Congress, 9–10 PM</label>
+          <legend>Weekend plans</legend>
+          <p class="fieldset-note">These answers help us estimate attendance and do not change your ticket price.</p>
+          <label class="check"><input type="checkbox" name="concert" value="Yes"> Friday concert at Hotel Congress, 9–10 PM</label>
+          <label class="check"><input type="checkbox" name="picnic" value="Yes"> Saturday family picnic at James D. Kriegh Park, 12 PM</label>
+          <label class="check"><input type="checkbox" name="cdoVisit" value="Yes"> Possible CDO tour and class pictures, 2 PM</label>
         </fieldset>
 
         <label class="check policy">
@@ -181,7 +187,7 @@
         <div class="checkout-row">
           <div>
             <span>Total</span>
-            <strong id="total">$67</strong>
+            <strong id="total">$45</strong>
           </div>
           <button class="button button--green" type="submit" id="submit-button">Continue to secure payment</button>
         </div>
