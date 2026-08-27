@@ -69,7 +69,16 @@ form.addEventListener('submit', async (event) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    const data = await response.json();
+    const responseText = await response.text();
+    let data;
+    try {
+      data = responseText ? JSON.parse(responseText) : {};
+    } catch {
+      data = {};
+    }
+    if (!response.ok && !data.error) {
+      throw new Error('Checkout is temporarily unavailable.');
+    }
     if (!response.ok || !data.url) throw new Error(data.error || 'Unable to create checkout.');
     window.location.href = data.url;
   } catch (error) {
