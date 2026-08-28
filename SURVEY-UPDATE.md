@@ -1,5 +1,13 @@
 # Optional reunion survey update
 
+Version 3 adds high-school talents/hobbies still enjoyed today, U.S. states visited,
+and countries visited. Travel counts are lifetime counts including places lived.
+New spreadsheet columns are appended after existing columns to preserve their positions.
+If version 2 is already installed, replace index.html and functions/api/create-checkout.js
+in GitHub, and update Code.gs in Apps Script and deploy a new version as below.
+The client and webhook already forward the new fields; their files are included for
+users who have not yet installed the earlier survey updates.
+
 Prepared locally; not yet published to GitHub, Cloudflare, or Google Apps Script.
 
 ## 1. Update Apps Script first
@@ -31,8 +39,10 @@ a replacement for the whole existing site. Keep your other files and assets.
 
 ## 3. Check the result
 
-Refresh the site and expand Where are we now? above the refund checkbox.
-All questions are optional. The price is still $45 and Friday details are preserved.
+Refresh the site: Where are we now? is fully visible above the refund checkbox.
+The fields can be skipped but are not labeled optional. The price is still $45 and Friday details are preserved.
+Saturday's main reunion now begins at CDO at 5 PM, with dinner at DiBella's afterward.
+The countdown also targets 5 PM. The family picnic remains at noon.
 After a paid checkout reaches the webhook successfully, responses appear in a new
 Classmate Survey tab in the SAME spreadsheet. That tab is created on the first
 survey delivery, not immediately after pasting the script.

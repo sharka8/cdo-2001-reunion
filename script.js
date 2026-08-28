@@ -1,4 +1,4 @@
-const reunionDate = new Date('2026-10-24T18:00:00-07:00');
+const reunionDate = new Date('2026-10-24T17:00:00-07:00');
 const TICKET_PRICE = 45;
 
 const countdownIds = {
@@ -51,10 +51,6 @@ quantity.addEventListener('change', updateTotal);
 updateTotal();
 
 const surveyResponses = document.getElementById('survey-responses');
-form.addEventListener('invalid', (event) => {
-  const section = event.target.closest('.survey-section');
-  if (section) section.open = true;
-}, true);
 document.getElementById('add-graduate').addEventListener('click', addGraduate);
 function addGraduate() {
   if (surveyResponses.children.length >= 6) return;

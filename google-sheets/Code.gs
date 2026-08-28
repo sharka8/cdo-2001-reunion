@@ -111,7 +111,7 @@ function saveClassmateResponses(spreadsheet, sessionId, responses) {
   if (!responses.length) return;
   let survey = spreadsheet.getSheetByName('Classmate Survey');
   if (!survey) survey = spreadsheet.insertSheet('Classmate Survey');
-  const headers = ['Response ID', 'Stripe Session ID', 'Graduate Name', 'City / State / Country', 'Children Reported', 'Grandchildren Reported', 'Career Field', 'Other Career', 'Accomplishment (private unless permitted)', 'CDO Memory (private unless permitted)', 'May Share Written Responses With Name'];
+  const headers = ['Response ID', 'Stripe Session ID', 'Graduate Name', 'City / State / Country', 'Children Reported', 'Grandchildren Reported', 'Career Field', 'Other Career', 'Accomplishment (private unless permitted)', 'CDO Memory (private unless permitted)', 'May Share Written Responses With Name', 'High School Talents / Hobbies (private unless permitted)', 'U.S. States Visited (lifetime)', 'Countries Visited (lifetime)'];
   survey.getRange(1, 1, 1, headers.length).setValues([headers]).setBackground('#083D2D').setFontColor('#FFFFFF').setFontWeight('bold').setWrap(true);
   survey.setFrozenRows(1);
   responses.forEach(function(response, index) {
@@ -124,6 +124,8 @@ function saveClassmateResponses(spreadsheet, sessionId, responses) {
       response.children == null ? '' : response.children,
       response.grandchildren == null ? '' : response.grandchildren,
       response.career || '', response.careerOther || '', response.accomplishment || '', response.memory || '',
-      response.shareWithName === true ? 'Yes' : 'No'].map(safeCell));
+      response.shareWithName === true ? 'Yes' : 'No', response.highSchoolHobbies || '',
+      response.statesVisited == null ? '' : response.statesVisited,
+      response.countriesVisited == null ? '' : response.countriesVisited].map(safeCell));
   });
 }

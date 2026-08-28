@@ -105,18 +105,18 @@ export function validateSurvey(value = []) {
   return value.map((record) => {
     if (!record || typeof record !== 'object') throw new Error('Invalid classmate response.');
     const result = {};
-    for (const [key, limit] of Object.entries({name:100, location:120, career:60, careerOther:100, accomplishment:400, memory:400})) {
+    for (const [key, limit] of Object.entries({name:100, location:120, career:60, careerOther:100, accomplishment:400, memory:400, highSchoolHobbies:400})) {
       const text = record[key] ?? '';
       if (typeof text !== 'string' || text.length > limit) throw new Error(`Please shorten the ${key} answer (maximum ${limit} characters).`);
       result[key] = text.trim();
     }
     if (!careers.includes(result.career)) throw new Error('Please choose a listed career field.');
-    for (const key of ['children', 'grandchildren']) {
+    for (const [key, maximum] of Object.entries({children:100, grandchildren:100, statesVisited:50, countriesVisited:250})) {
       const raw = record[key];
       result[key] = raw === '' || raw == null ? null : Number(raw);
-      if (result[key] !== null && ((typeof raw !== 'string' && typeof raw !== 'number') || !Number.isInteger(result[key]) || result[key] < 0 || result[key] > 100)) throw new Error('Family counts must be whole numbers from 0 to 100, or blank.');
+      if (result[key] !== null && ((typeof raw !== 'string' && typeof raw !== 'number') || !Number.isInteger(result[key]) || result[key] < 0 || result[key] > maximum)) throw new Error(`Please enter a whole number from 0 to ${maximum} for ${key}, or leave it blank.`);
     }
     result.shareWithName = record.shareWithName === true;
     return result;
-  }).filter((r) => r.location || r.career || r.careerOther || r.accomplishment || r.memory || r.children !== null || r.grandchildren !== null);
+  }).filter((r) => r.location || r.career || r.careerOther || r.accomplishment || r.memory || r.highSchoolHobbies || r.children !== null || r.grandchildren !== null || r.statesVisited !== null || r.countriesVisited !== null);
 }
