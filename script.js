@@ -55,6 +55,13 @@ document.getElementById('add-graduate').addEventListener('click', addGraduate);
 function addGraduate() {
   if (surveyResponses.children.length >= 6) return;
   const fragment = document.getElementById('survey-template').content.cloneNode(true);
+  fragment.querySelector('[data-hobbies]').addEventListener('change', (event) => {
+    if (!event.target.checked) return;
+    const choices = event.currentTarget.querySelectorAll('input[type="checkbox"]');
+    for (const choice of choices) {
+      if (choice !== event.target && (event.target.value === 'None currently' || choice.value === 'None currently')) choice.checked = false;
+    }
+  });
   fragment.querySelector('[data-remove-survey]').addEventListener('click', (event) => {
     event.target.closest('fieldset').remove();
     document.getElementById('add-graduate').disabled = false;
@@ -77,9 +84,9 @@ form.addEventListener('submit', async (event) => {
   payload.picnic = formData.get('picnic') === 'Yes';
   payload.cdoVisit = formData.get('cdoVisit') === 'Yes';
   payload.classmateResponses = [...surveyResponses.children].map((fieldset) =>
-    Object.fromEntries([...fieldset.querySelectorAll('[data-survey]')].map((input) =>
+    ({...Object.fromEntries([...fieldset.querySelectorAll('[data-survey]')].map((input) =>
       [input.dataset.survey, input.type === 'checkbox' ? input.checked : input.value.trim()]
-    ))
+    )), highSchoolHobbies: [...fieldset.querySelectorAll('[data-hobbies] input:checked')].map((input) => input.value).join('; ')})
   );
 
   try {
