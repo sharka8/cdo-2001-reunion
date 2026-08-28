@@ -8,6 +8,17 @@
   <meta property="og:title" content="CDO Class of 2001 — 25-Year Reunion">
   <meta property="og:description" content="October 23–24, 2026 in Tucson. Saturday reunion tickets are $45 per person.">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .survey-section { margin: 22px 0; padding: 18px; border: 1px solid #d7ddd9; border-radius: 14px; background: #f5f8f5; }
+    .survey-section h3 { margin-top: 0; color: #083d2d; }
+    .graduate-survey > label { display: block; margin-top: 16px; }
+    .graduate-survey > label.check { display: flex; }
+    .graduate-survey .grid > label { min-width: 0; }
+    .schedule .card > div:last-child { min-width: 0; }
+    .venue-photo { display: block; width: 100%; height: auto; border-radius: 12px; margin: 12px 0; }
+    .venue-photo--compact { float: right; width: min(42%, 145px); margin: 0 0 10px 14px; }
+    .event-item::after { content: ''; display: block; clear: both; }
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -53,7 +64,7 @@
       <div class="intro__copy">
         <p class="eyebrow">Más Allá</p>
         <h2>Come reconnect with the Class of 2001</h2>
-      <p>Join us for a relaxed weekend with a Friday-night gathering at Hotel Congress, family activities Saturday afternoon and our main celebration Saturday evening at DiBella’s.</p>
+      <p>Join us for a relaxed weekend with a Friday-night gathering at Hotel Congress and a Saturday family picnic. The main reunion begins Saturday at 5 PM with a CDO tour and class pictures, followed by dinner and celebrating at DiBella’s.</p>
       </div>
     </section>
 
@@ -68,6 +79,7 @@
           <div class="date-badge"><strong>FRI</strong><span>OCT 23</span></div>
           <div>
             <h3>Friday Night at Hotel Congress</h3>
+            <img class="venue-photo" src="assets/hotel-congress.jpg" alt="Hotel Congress courtyard with outdoor tables and evening lights" width="1280" height="733" loading="lazy">
             <div class="event-item">
               <p class="event-time">Beginning at 5:00 PM</p>
               <h4>Casual Reunion Meet-Up</h4>
@@ -100,17 +112,20 @@
             <div class="event-item">
               <p class="event-time">12:00 PM</p>
               <h4>Family Picnic at James D. Kriegh Park</h4>
+              <img class="venue-photo venue-photo--compact" src="assets/james-kriegh-park.jpg" alt="Shaded playground with mountain views at James D. Kriegh Park" width="293" height="220" loading="lazy">
               <p>Bring your own picnic and gather with classmates, friends and families for a relaxed afternoon at the park.</p>
             </div>
             <div class="event-item">
-              <p class="event-time">2:00 PM</p>
-              <h4>Possible CDO Tour & Class Photos</h4>
-              <p>We hope to visit CDO for a possible campus tour and class pictures. Details will be confirmed as arrangements are finalized.</p>
+              <p class="event-time">5:00 PM · Main reunion begins</p>
+              <h4>CDO Tour & Class Photos</h4>
+              <img class="venue-photo venue-photo--compact" src="assets/cdo-hero.jpg" alt="Canyon del Oro High School" loading="lazy">
+              <p>Meet at Canyon del Oro High School to kick off our reunion with a campus tour and class pictures.</p>
             </div>
             <div class="event-item">
-              <p class="event-time">6:00 PM</p>
-              <h4>Dinner & Main Event at DiBella’s</h4>
-              <p>Enjoy dinner and plenty of time to reconnect and celebrate with classmates and guests.</p>
+              <p class="event-time">6:00 PM · Following the CDO tour & pictures</p>
+              <h4>Dinner & Celebration at DiBella’s</h4>
+              <img class="venue-photo venue-photo--compact" src="assets/dibellas-interior.jpg" alt="DiBella’s dining room with tables and bar seating" width="293" height="220" loading="lazy">
+              <p>After our time at CDO, we’ll head to DiBella’s for dinner and plenty of time to reconnect and celebrate with classmates and guests.</p>
             </div>
             <div class="price-block">
               <strong>$45</strong>
@@ -143,7 +158,7 @@
         <h2 id="faq-heading">Good to know</h2>
       </div>
       <div class="faq__grid">
-        <article><h3>What does the ticket include?</h3><p>The $45 ticket is for Saturday evening’s dinner and main reunion event at DiBella’s. Friday at Hotel Congress, the family picnic and the possible CDO visit are separate weekend activities.</p></article>
+        <article><h3>What does the ticket include?</h3><p>The $45 ticket covers Saturday evening’s dinner and reunion celebration at DiBella’s. The main reunion begins at CDO at 5 PM with a tour and class pictures, followed by dinner at DiBella’s. Friday at Hotel Congress and Saturday’s noon family picnic are separate weekend activities.</p></article>
         <article><h3>Can I bring a guest?</h3><p>Yes. Purchase one ticket per person attending the Saturday evening event and enter the full name of every guest during registration.</p></article>
         <article><h3>Will I receive confirmation?</h3><p>Yes. Stripe will email a payment receipt after checkout is completed.</p></article>
         <article><h3>What is the refund deadline?</h3><p>Full refunds are available when requested before the event date, October 24, 2026.</p></article>
@@ -195,8 +210,63 @@
           <p class="fieldset-note">These answers help us estimate attendance and do not change your ticket price.</p>
           <label class="check"><input type="checkbox" name="concert" value="Yes"> Friday gathering at Hotel Congress, beginning at 5 PM</label>
           <label class="check"><input type="checkbox" name="picnic" value="Yes"> Saturday family picnic at James D. Kriegh Park, 12 PM</label>
-          <label class="check"><input type="checkbox" name="cdoVisit" value="Yes"> Possible CDO tour and class pictures, 2 PM</label>
+          <label class="check"><input type="checkbox" name="cdoVisit" value="Yes"> Main reunion kickoff: CDO tour and class pictures, Saturday at 5 PM</label>
         </fieldset>
+
+        <section class="survey-section" aria-labelledby="survey-heading">
+          <h3 id="survey-heading">Where are we now?</h3>
+          <p>Twenty-five years, so many different paths! Help us tell the story of the Class of 2001 by sharing a little about your life today. We’ll use your answers to put together fun class statistics for the reunion.</p>
+          <p class="fieldset-note">Answer once per CDO graduate, not per ticket. Answers are saved with your paid registration and available to reunion organizers. We will share aggregate statistics; written answers will only be shared with your permission. Please avoid sensitive personal details.</p>
+          <div id="survey-responses"></div>
+          <button type="button" class="button button--green" id="add-graduate">Add another CDO graduate</button>
+          <p class="fieldset-note">If two graduates share children, include them in only one response to avoid counting them twice. Statistics will describe classmates who responded, not the entire class.</p>
+        </section>
+
+        <template id="survey-template">
+          <fieldset class="graduate-survey">
+            <legend>Classmate response</legend>
+            <div class="grid">
+              <label>Graduate’s name<input data-survey="name" maxlength="100" autocomplete="off"></label>
+              <label>Where do you live? City and state/country<input data-survey="location" maxlength="120" autocomplete="off"></label>
+              <label>Number of children<input data-survey="children" type="number" min="0" max="100" step="1"></label>
+              <label>Number of grandchildren<input data-survey="grandchildren" type="number" min="0" max="100" step="1"></label>
+              <label>How many U.S. states have you visited?<input data-survey="statesVisited" type="number" min="0" max="50" step="1"></label>
+              <label>How many countries have you visited?<input data-survey="countriesVisited" type="number" min="0" max="250" step="1"></label>
+              <label>Career field or primary role
+                <select data-survey="career">
+                  <option value="">Select a field</option>
+                  <option>Education</option><option>Healthcare</option><option>Engineering / Technology</option>
+                  <option>Business</option><option>Skilled trades</option><option>Public service / Military</option>
+                  <option>Arts / Media</option><option>Hospitality</option><option>Full-time caregiving</option>
+                  <option>Student</option><option>Retired</option><option>Other</option>
+                </select>
+              </label>
+              <label>Other career field<input data-survey="careerOther" maxlength="100"></label>
+            </div>
+            <p class="fieldset-note">For travel counts, count each place once, including places you’ve lived, over your lifetime. Include the United States in your country count.</p>
+            <fieldset data-hobbies>
+              <legend>Which hobbies or skills from high school are still part of your life?</legend>
+              <p class="fieldset-note">Select all that apply.</p>
+              <div class="grid">
+                <label class="check"><input type="checkbox" value="Music / singing"> Music / singing</label>
+                <label class="check"><input type="checkbox" value="Sports / fitness"> Sports / fitness</label>
+                <label class="check"><input type="checkbox" value="Art / design / photography"> Art / design / photography</label>
+                <label class="check"><input type="checkbox" value="Theater / dance"> Theater / dance</label>
+                <label class="check"><input type="checkbox" value="Writing / journalism"> Writing / journalism</label>
+                <label class="check"><input type="checkbox" value="Technology / coding"> Technology / coding</label>
+                <label class="check"><input type="checkbox" value="Cooking / hands-on skills"> Cooking / hands-on skills</label>
+                <label class="check"><input type="checkbox" value="Languages"> Languages</label>
+                <label class="check"><input type="checkbox" value="Leadership / public speaking"> Leadership / public speaking</label>
+                <label class="check"><input type="checkbox" value="Other"> Other</label>
+                <label class="check"><input type="checkbox" value="None currently"> None currently</label>
+              </div>
+            </fieldset>
+            <label>One accomplishment or life experience you’re proud of since graduation<textarea data-survey="accomplishment" rows="3" maxlength="400"></textarea></label>
+            <label>Favorite CDO memory<textarea data-survey="memory" rows="3" maxlength="400"></textarea></label>
+            <label class="check"><input data-survey="shareWithName" type="checkbox"> You may share my written responses at the reunion with my name.</label>
+            <button type="button" data-remove-survey>Remove this response</button>
+          </fieldset>
+        </template>
 
         <label class="check policy">
           <input type="checkbox" required>
