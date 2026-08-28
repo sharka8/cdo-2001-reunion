@@ -14,6 +14,10 @@
     .graduate-survey > label { display: block; margin-top: 16px; }
     .graduate-survey > label.check { display: flex; }
     .graduate-survey .grid > label { min-width: 0; }
+    .schedule .card > div:last-child { min-width: 0; }
+    .venue-photo { display: block; width: 100%; height: auto; border-radius: 12px; margin: 12px 0; }
+    .venue-photo--compact { float: right; width: min(42%, 145px); margin: 0 0 10px 14px; }
+    .event-item::after { content: ''; display: block; clear: both; }
   </style>
 </head>
 <body>
@@ -75,6 +79,7 @@
           <div class="date-badge"><strong>FRI</strong><span>OCT 23</span></div>
           <div>
             <h3>Friday Night at Hotel Congress</h3>
+            <img class="venue-photo" src="assets/hotel-congress.jpg" alt="Hotel Congress courtyard with outdoor tables and evening lights" width="1280" height="733" loading="lazy">
             <div class="event-item">
               <p class="event-time">Beginning at 5:00 PM</p>
               <h4>Casual Reunion Meet-Up</h4>
@@ -107,16 +112,19 @@
             <div class="event-item">
               <p class="event-time">12:00 PM</p>
               <h4>Family Picnic at James D. Kriegh Park</h4>
+              <img class="venue-photo venue-photo--compact" src="assets/james-kriegh-park.jpg" alt="Shaded playground with mountain views at James D. Kriegh Park" width="293" height="220" loading="lazy">
               <p>Bring your own picnic and gather with classmates, friends and families for a relaxed afternoon at the park.</p>
             </div>
             <div class="event-item">
               <p class="event-time">5:00 PM · Main reunion begins</p>
               <h4>CDO Tour & Class Photos</h4>
+              <img class="venue-photo venue-photo--compact" src="assets/cdo-hero.jpg" alt="Canyon del Oro High School" loading="lazy">
               <p>Meet at Canyon del Oro High School to kick off our reunion with a campus tour and class pictures.</p>
             </div>
             <div class="event-item">
               <p class="event-time">Following the CDO tour & pictures</p>
               <h4>Dinner & Celebration at DiBella’s</h4>
+              <img class="venue-photo venue-photo--compact" src="assets/dibellas-interior.jpg" alt="DiBella’s dining room with tables and bar seating" width="293" height="220" loading="lazy">
               <p>After our time at CDO, we’ll head to DiBella’s for dinner and plenty of time to reconnect and celebrate with classmates and guests.</p>
             </div>
             <div class="price-block">
