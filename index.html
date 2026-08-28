@@ -8,6 +8,13 @@
   <meta property="og:title" content="CDO Class of 2001 — 25-Year Reunion">
   <meta property="og:description" content="October 23–24, 2026 in Tucson. Saturday reunion tickets are $45 per person.">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .survey-section { margin: 22px 0; padding: 18px; border: 1px solid #d7ddd9; border-radius: 14px; background: #f5f8f5; }
+    .survey-section summary { cursor: pointer; font-weight: 800; color: #083d2d; }
+    .graduate-survey > label { display: block; margin-top: 16px; }
+    .graduate-survey > label.check { display: flex; }
+    .graduate-survey .grid > label { min-width: 0; }
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -197,6 +204,41 @@
           <label class="check"><input type="checkbox" name="picnic" value="Yes"> Saturday family picnic at James D. Kriegh Park, 12 PM</label>
           <label class="check"><input type="checkbox" name="cdoVisit" value="Yes"> Possible CDO tour and class pictures, 2 PM</label>
         </fieldset>
+
+        <details class="survey-section">
+          <summary>Where are we now? — Optional classmate questions</summary>
+          <p>Twenty-five years, so many different paths! Share a little about your life today. All questions are optional—this is a celebration, not a comparison.</p>
+          <p class="fieldset-note">Answer once per CDO graduate, not per ticket. Answers are saved with your paid registration and available to reunion organizers. We will share aggregate statistics; written answers will only be shared with your permission. Please avoid sensitive personal details.</p>
+          <div id="survey-responses"></div>
+          <button type="button" class="button button--green" id="add-graduate">Add another CDO graduate</button>
+          <p class="fieldset-note">If two graduates share children, include them in only one response to avoid counting them twice. Statistics will describe classmates who responded, not the entire class.</p>
+        </details>
+
+        <template id="survey-template">
+          <fieldset class="graduate-survey">
+            <legend>Classmate response</legend>
+            <div class="grid">
+              <label>Graduate’s name (optional)<input data-survey="name" maxlength="100" autocomplete="off"></label>
+              <label>Where do you live? City and state/country<input data-survey="location" maxlength="120" autocomplete="off"></label>
+              <label>Number of children<input data-survey="children" type="number" min="0" max="100" step="1" placeholder="Leave blank to skip"></label>
+              <label>Number of grandchildren<input data-survey="grandchildren" type="number" min="0" max="100" step="1" placeholder="Leave blank to skip"></label>
+              <label>Career field or primary role
+                <select data-survey="career">
+                  <option value="">Prefer not to answer</option>
+                  <option>Education</option><option>Healthcare</option><option>Engineering / Technology</option>
+                  <option>Business</option><option>Skilled trades</option><option>Public service / Military</option>
+                  <option>Arts / Media</option><option>Hospitality</option><option>Full-time caregiving</option>
+                  <option>Student</option><option>Retired</option><option>Other</option>
+                </select>
+              </label>
+              <label>Other career field (optional)<input data-survey="careerOther" maxlength="100"></label>
+            </div>
+            <label>One accomplishment or life experience you’re proud of since graduation<textarea data-survey="accomplishment" rows="3" maxlength="400"></textarea></label>
+            <label>Favorite CDO memory<textarea data-survey="memory" rows="3" maxlength="400"></textarea></label>
+            <label class="check"><input data-survey="shareWithName" type="checkbox"> You may share my written responses at the reunion with my name.</label>
+            <button type="button" data-remove-survey>Remove this response</button>
+          </fieldset>
+        </template>
 
         <label class="check policy">
           <input type="checkbox" required>

@@ -65,7 +65,24 @@ export async function handleStripeWebhook(request, env) {
   }
 
   const metadata = session.metadata || {};
+  let classmateResponses = [];
+  try {
+    if (metadata.survey_chunks) {
+      const count = Number(metadata.survey_chunks);
+      if (!Number.isInteger(count) || count < 1 || count > 38) throw new Error('Invalid survey chunks');
+      let encoded = '';
+      for (let index = 0; index < count; index++) {
+        if (typeof metadata[`survey_${index}`] !== 'string') throw new Error('Missing survey chunk');
+        encoded += metadata[`survey_${index}`];
+      }
+      classmateResponses = JSON.parse(encoded);
+      if (!Array.isArray(classmateResponses) || classmateResponses.length > 6) throw new Error('Invalid survey');
+    }
+  } catch {
+    return jsonResponse({ error: 'Unable to read classmate responses.' }, 500);
+  }
   const sheetPayload = {
+    classmateResponses,
     sharedSecret: env.SHEETS_SHARED_SECRET,
     paymentDate: new Date((session.created || event.created) * 1000).toISOString(),
     graduateName: metadata.graduate_name || '',

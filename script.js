@@ -50,6 +50,24 @@ function updateTotal() {
 quantity.addEventListener('change', updateTotal);
 updateTotal();
 
+const surveyResponses = document.getElementById('survey-responses');
+form.addEventListener('invalid', (event) => {
+  const section = event.target.closest('.survey-section');
+  if (section) section.open = true;
+}, true);
+document.getElementById('add-graduate').addEventListener('click', addGraduate);
+function addGraduate() {
+  if (surveyResponses.children.length >= 6) return;
+  const fragment = document.getElementById('survey-template').content.cloneNode(true);
+  fragment.querySelector('[data-remove-survey]').addEventListener('click', (event) => {
+    event.target.closest('fieldset').remove();
+    document.getElementById('add-graduate').disabled = false;
+  });
+  surveyResponses.append(fragment);
+  document.getElementById('add-graduate').disabled = surveyResponses.children.length >= 6;
+}
+addGraduate();
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   message.textContent = '';
@@ -62,6 +80,11 @@ form.addEventListener('submit', async (event) => {
   payload.concert = formData.get('concert') === 'Yes';
   payload.picnic = formData.get('picnic') === 'Yes';
   payload.cdoVisit = formData.get('cdoVisit') === 'Yes';
+  payload.classmateResponses = [...surveyResponses.children].map((fieldset) =>
+    Object.fromEntries([...fieldset.querySelectorAll('[data-survey]')].map((input) =>
+      [input.dataset.survey, input.type === 'checkbox' ? input.checked : input.value.trim()]
+    ))
+  );
 
   try {
     const response = await fetch('/api/create-checkout', {
